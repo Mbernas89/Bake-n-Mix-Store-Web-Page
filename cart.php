@@ -1,19 +1,19 @@
 <?php
 require 'config.php';
 
-//redirect to login if not logged in
+// redirect to login if not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
 
-//redirect to home if cart is empty
+// redirect to home if cart is empty
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     header('Location: index.php');
     exit;
 }
 
-//compute cart total
+// compute cart total
 $cart = $_SESSION['cart'];
 $total = 0;
 foreach ($cart as $c) {
@@ -88,15 +88,36 @@ foreach ($cart as $c) {
             ></textarea>
         </div>
 
-        <!-- PAYMENT -->
+        <!-- PAYMENT METHOD -->
         <div class="mb-4">
             <label class="form-label fw-bold">Payment Method</label>
-            <select name="payment_method" class="form-select" required>
+            <select
+                name="payment_method"
+                id="paymentMethod"
+                class="form-select"
+                required
+            >
                 <option value="">-- Select Payment --</option>
                 <option value="COD">Cash on Delivery</option>
                 <option value="Pickup">Pickup</option>
                 <option value="GCash">GCash (Online Payment)</option>
             </select>
+        </div>
+
+        <!-- GCASH IMAGE -->
+        <div id="gcashBox" class="mb-4" style="display:none;">
+            <label class="form-label fw-bold">Scan to Pay (GCash)</label>
+            <div class="border p-3 text-center">
+                <img
+                    src="images/gcash.jpg"
+                    alt="GCash Payment"
+                    class="img-fluid"
+                    style="max-width:300px;"
+                >
+                <p class="mt-2 text-muted">
+                    Please send the exact amount and keep the receipt.
+                </p>
+            </div>
         </div>
 
         <button class="btn btn-danger w-100 py-2">
@@ -106,6 +127,21 @@ foreach ($cart as $c) {
     </form>
 
 </div>
+
+<!-- GCASH SCRIPT -->
+<script>
+document.getElementById('paymentMethod').addEventListener('change', function () {
+
+    const gcashBox = document.getElementById('gcashBox');
+
+    if (this.value === 'GCash') {
+        gcashBox.style.display = 'block';
+    } else {
+        gcashBox.style.display = 'none';
+    }
+
+});
+</script>
 
 </body>
 </html>
