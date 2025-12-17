@@ -30,17 +30,20 @@ foreach ($_SESSION['cart'] as $it) {
 
 // insert order
 $stmt = $mysqli->prepare("
-    INSERT INTO orders (user_id, customer_name, payment_method, total)
-VALUES (?, ?, ?, ?)
-
+    INSERT INTO orders (user_id, customer_name, phone, address, payment_method, total)
+    VALUES (?, ?, ?, ?, ?, ?)
 ");
+
 $stmt->bind_param(
-    "issd",
+    "issssd",
     $user['id'],
     $user['username'],
+    $phone,
+    $address,
     $payment,
     $total
 );
+
 
 $stmt->execute();
 

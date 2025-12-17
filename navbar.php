@@ -3,7 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+<!-- NAVBAR -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
 
         <a class="navbar-brand fw-bold" href="index.php" style="color:#c1121f;">
@@ -65,3 +67,36 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
 </nav>
+
+<!-- REQUIRED SPACING FOR FIXED NAVBAR -->
+<style>
+body {
+    padding-top: 75px;
+}
+
+/* smooth animation */
+#mainNavbar {
+    transition: top 0.3s ease-in-out;
+}
+</style>
+
+<!-- AUTO-HIDE ON SCROLL SCRIPT -->
+<script>
+let lastScrollTop = 0;
+const navbar = document.getElementById('mainNavbar');
+
+window.addEventListener('scroll', function () {
+
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // scrolling down → hide navbar
+        navbar.style.top = "-90px";
+    } else {
+        // scrolling up → show navbar
+        navbar.style.top = "0";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+</script>
