@@ -74,7 +74,6 @@ body {
     padding-top: 75px;
 }
 
-/* smooth animation */
 #mainNavbar {
     transition: top 0.3s ease-in-out;
 }

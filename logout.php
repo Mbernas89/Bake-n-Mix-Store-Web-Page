@@ -5,7 +5,7 @@ require 'config.php';
 session_unset();
 session_destroy();
 
-// Delete the session cookie (important!)
+// Delete the session cookie 
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(

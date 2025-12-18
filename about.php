@@ -99,7 +99,6 @@
         <h5 class="mb-1">Bake N' Mix</h5>
         <p class="mb-2">Your one-stop shop for baking supplies</p>
 
-        <!-- SOCIAL ICONS -->
         <div class="mb-3">
             <a href="https://www.facebook.com/BakeAndMixBakingSupplies" class="text-white fs-4 me-3">
                 <i class="fa-brands fa-facebook"></i>

@@ -96,7 +96,6 @@ if (!empty($_GET['search'])) {
 
 <?php include 'navbar.php'; ?>
 
-<!-- HERO -->
 <section class="py-5 text-center text-white" style="background:#c1121f;">
     <div class="container">
         <h1 class="display-5 fw-bold">Welcome to Bake N' Mix</h1>
@@ -108,7 +107,6 @@ if (!empty($_GET['search'])) {
     <div id="alertBox"></div>
 </div>
 
-<!-- SHOP -->
 <section class="py-5">
     <div class="container">
         <div class="row">
@@ -146,7 +144,7 @@ if (!empty($_GET['search'])) {
                                 <div class="card-body d-flex flex-column">
                                     <h5><?= htmlspecialchars($p['name']) ?></h5>
 
-                                    <!-- ✅ FIXED DESCRIPTION -->
+                                    <!--  FIXED DESCRIPTION -->
                                     <p>
                                         <?= htmlspecialchars(mb_strimwidth($p['description'], 0, 100, '...')) ?>
                                     </p>
@@ -226,7 +224,6 @@ document.querySelectorAll('.addToCartBtn').forEach(button => {
         <h5 class="mb-1">Bake N' Mix</h5>
         <p class="mb-2">Your one-stop shop for baking supplies</p>
 
-        <!-- SOCIAL ICONS -->
         <div class="mb-3">
             <a href="https://www.facebook.com/BakeAndMixBakingSupplies" class="text-white fs-4 me-3">
                 <i class="fa-brands fa-facebook"></i>
