@@ -3,10 +3,10 @@
 session_start();
 
 //database connection settings
-$DB_HOST = '127.0.0.1';
-$DB_USER = 'root';
-$DB_PASS = 'Password123'; // My MySQL password
-$DB_NAME = 'bakenmix';
+$DB_HOST = 'localhost';
+$DB_USER = 'u854451208_bakenmix123'; //root
+$DB_PASS = 'Jollibee87000_'; // My MySQL password //Password123
+$DB_NAME = 'u854451208_bakenmix'; //bakenmix
 
 //Create MySQL connection
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
